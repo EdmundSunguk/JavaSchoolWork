@@ -19,9 +19,8 @@ Question three (TestStudent and Student) status:
 [complete]
 
 ------------------------
-Question four (Primes and supporting classes) status:
+Question four (Primes) status:
 
-[complete or not complete]
-[explanation if not complete, what is working/not working]
+[complete]]
 
 ------------------------
