@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="COMP1510-assign-2-template/COMP1510-assign-2-template/src"/>
+	<classpathentry kind="lib" path="COMP1510-assign-2-template/COMP1510-assign-2-template/lib/checkstyle-6.10-all.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
