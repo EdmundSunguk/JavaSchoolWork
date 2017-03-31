@@ -2,7 +2,8 @@ package q3;
 
 /**
  * <p>This is the modified version of Address class that is
- * on the textbook. </p>
+ * on the textbook. Also, Address class does not have any
+ * exceptions since the program do not read inputs from user.</p>
  * 
  * @author Sunguk (Edmund) Ham, A00979841
  * @version 1.0

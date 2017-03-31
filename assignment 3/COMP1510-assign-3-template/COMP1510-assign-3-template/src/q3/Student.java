@@ -104,6 +104,11 @@ public class Student {
      * @param testScore is used for initializing test score.
      */
     public void setTestScore(int testNumber, int testScore) {
+        if (!(testNumber == 1 || testNumber == 2 
+                || testNumber == numTest)) {
+            throw new IllegalArgumentException("You must enter 1, 2, or"
+                    + " 3 for the testNumber.");
+        }
         if (testNumber == 1) {
             score1 = testScore;
         }   else if (testNumber == 2) {
@@ -122,13 +127,19 @@ public class Student {
      * @return score1, score2, or score3 depends on the parameter.
      */
     public int getTestScore(int testNumber) {
+        if (!(testNumber == 1 || testNumber == 2 
+                || testNumber == numTest)) {
+            throw new IllegalArgumentException("You must enter 1, 2, or"
+                    + " 3 for the testNumber.");
+        }
+        
         if (testNumber == 1) {
             return score1;
-        }
-        if (testNumber == 2) {
+        } else if (testNumber == 2) {
             return score2;
-        }
+        } else {
             return score3;
+        }
     }
     
     /**
@@ -138,6 +149,11 @@ public class Student {
      * @return average of score1, score2, and score3
      */
     public double average() {
+        if (score1 == 0 && score2 == 0
+                && score3 == 0) {
+            throw new IllegalArgumentException("You must not enter "
+                    + "all test score to 0.");
+        }
         average = (score1 + score2 + score3) / numTest;
         return average;
     }

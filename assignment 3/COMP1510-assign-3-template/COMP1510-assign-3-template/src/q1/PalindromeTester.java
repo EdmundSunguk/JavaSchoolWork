@@ -70,8 +70,7 @@ public class PalindromeTester {
             str = scan.nextLine();
             
             // Program ignores spaces between characters
-            str = str.replace(" ", "");
-            str = str.toUpperCase();
+            str = str.replace(" ", "").toUpperCase();
             
             /**
              * Using for loop instead of regular expression
@@ -91,7 +90,8 @@ public class PalindromeTester {
                         str = str.replace(charCode, '.');
                         str = str.replace(".", "");
                         System.out.println();
-                        System.out.println("You've got punctuation in your"
+                        System.out.println("You've got punctuations / special "
+                                + "characters / numbersin your"
                                 + " sentence/word.");
                         System.out.println("This program just ignores"
                                 + " the punctuation.");
@@ -121,6 +121,11 @@ public class PalindromeTester {
                     System.out.println();
                     System.out.println("Test another palindrome (y/n)? ");
                     another = scan.nextLine();
+                    if (!another.equals("y")
+                            || !another.equals("n")) {
+                         throw new IllegalArgumentException("You must "
+                                 + "enter either y or n");
+                    }
         // End of while loop.
         }
         

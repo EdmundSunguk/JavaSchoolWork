@@ -14,13 +14,13 @@ Question two (RockPaperScissors) status:
 [complete]
 
 ------------------------
-Question three (TestStudent and Student) status:
+Question three (TestStudent, Student, and Address) status:
 
 [complete]
 
 ------------------------
 Question four (Primes) status:
 
-[complete]]
+[complete]
 
 ------------------------

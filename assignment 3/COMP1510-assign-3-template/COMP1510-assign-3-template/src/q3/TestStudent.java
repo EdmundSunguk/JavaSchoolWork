@@ -13,6 +13,15 @@ import java.util.Scanner;
  */
 public class TestStudent {
     
+    /**
+     * <p>Scanner object scan.</p>
+     */
+    private static Scanner scan = new Scanner(System.in);
+    
+    /**
+     * <p>String object used for looping do loop.</p>
+     */
+    private static String again = "r";
     
     /**
      * <p>This is the main method (entry point) that gets called by the JVM.</p>
@@ -21,11 +30,8 @@ public class TestStudent {
      */
     public static void main(String[] args) {
         
-        Scanner scan = new Scanner(System.in);
-        
         // String will be used for reading user input and determine whether
         // to repeat or not
-        String again = "r";
         String againSetScore = "r";
         
         System.out.println("Instruction: Test number must be 1, 2, or 3."

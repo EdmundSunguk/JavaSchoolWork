@@ -73,17 +73,21 @@ public class RockPaperScissors {
         System.out.println("$ java Rock"
                 + "\nInstruction: You can enter R, P, or S or "
                 + "Rock, Paper, or Scissors.\n\tIf you want to quit the "
-                + "program, enter any characters other than R P or S.");
+                + "program, enter q to quit.");
         
         // While loop that stops when user enter Quit.
-        while ("R".equals(personPlay)
-                || "S".equals(personPlay)
-                || "P".equals(personPlay)) {
+        while (!"Q".equals(personPlay)) {
             
             // scan user's input and substring the first character
             // which will be r, p, or s
             System.out.println("Enter your play: R, P, or S");
             personPlay = scan.nextLine().substring(0, 1).toUpperCase();
+            if (!(personPlay.equals("R")
+                    || personPlay.equals("S")
+                    || personPlay.equals("P")
+                    || personPlay.equals("Q"))) {
+                throw new IllegalArgumentException("Illegeal Input");
+            }
             
             // if user inputs q, program will stop
             // if user inputs r, p, or s, program will continue
@@ -113,8 +117,8 @@ public class RockPaperScissors {
                     
                 }
                 
-                System.out.println("Computer play is " + computerPlay);
-                System.out.println("Your play is " + personPlay);
+                System.out.println("Computer play is " + computerPlay 
+                        + "\nYour play is " + personPlay);
                 
                 // if computerplay and personplay equals, 
                 // terminate if statement very first,
