@@ -69,7 +69,7 @@ public class Primes {
             if (booleanArray[i]) {
                 booleanArray[i] = true;
             }
-            for (int q = 2; q <= booleanArray.length; q++) {
+            for (int q = 2; q < booleanArray.length / 2; q++) {
                 if (i * q < booleanArray.length) {
                     booleanArray[i * q] = false;
                 }
@@ -106,7 +106,17 @@ public class Primes {
         }
         return countingPrime;
     }
-
+    
+    /**
+     * <p>This method returns true if parameter x is prime number.</p>
+     * 
+     * @param x is determined whether it is prime number or not
+     * @return true if parameter is prime number
+     */
+    private boolean isPrime(int x) {
+        return primeArray[x];
+    }
+    
     /**
      * <p>This is the main method (entry point) that gets called by the JVM.</p>
      * 
@@ -121,7 +131,9 @@ public class Primes {
         
         // Read user input
         System.out.println("This program uses the sieve of Eratosthenese "
-                + "to determine which numbers are prime.");
+                + "to determine which numbers are prime."
+                + "\nSince array in Java need allocating a lot of memory,"
+                + " do not enter the number more than 1,000.");
         System.out.println("Enter an upper bound:");
         range = scan.nextInt();
         
@@ -137,8 +149,6 @@ public class Primes {
         System.out.println("The prime numbers between 0 and "
                 + range + " are:");
         primeObj.printPrimes();
-        
-        
     }
      
 }
