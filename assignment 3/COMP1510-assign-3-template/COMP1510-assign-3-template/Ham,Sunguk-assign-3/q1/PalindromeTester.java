@@ -24,7 +24,7 @@ public class PalindromeTester {
      * <p>According to the ASCII table, upper case character
      * ends at 89.</p>
      */
-    private static final int MAXUPPERCHAR = 90;
+    private static final int MAXUPPERCHAR = 89;
     
     /**
      * <p>According to the ASCII table, lower case character
@@ -69,6 +69,9 @@ public class PalindromeTester {
             System.out.println("Enter a potential palindrome:");
             str = scan.nextLine();
             
+            // Program ignores spaces between characters
+            str = str.replace(" ", "").toUpperCase();
+            
             /**
              * Using for loop instead of regular expression
              * 
@@ -96,7 +99,6 @@ public class PalindromeTester {
             }
             
             // index number starts at the right side of the string
-            left = 0;
             right = str.length() - 1;
             
             // Determine whether the input is palindrome or not.
@@ -120,7 +122,7 @@ public class PalindromeTester {
                     System.out.print("Test another palindrome (y/n)? ");
                     another = scan.nextLine();
                     if (!another.equals("y")
-                            && !another.equals("n")) {
+                            || !another.equals("n")) {
                          throw new IllegalArgumentException("You must "
                                  + "enter either y or n");
                     }

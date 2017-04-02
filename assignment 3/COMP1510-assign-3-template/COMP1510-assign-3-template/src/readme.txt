@@ -1,4 +1,4 @@
-[Sunguk (Edmund) Ham], [A00979841], [E], [April 4th, 2017]
+[Sunguk (Edmund) Ham], [A00979841], [E], [April 2nd, 2017]
 
 This assignment is [100]% complete.
 
