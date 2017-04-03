@@ -140,7 +140,10 @@ public class Primes {
     }
     
     /**
-     * <p>This method returns true if parameter x is prime number.</p>
+     * <p>This method returns true if parameter x is prime number.
+     * Since instruction does not say about calling isPrime method, 
+     * main method does not invoke this method. However, isPrime is made
+     * up of simple logic using static array.</p>
      * 
      * @param x is determined whether it is prime number or not
      * @return true if parameter is prime number
