@@ -4,49 +4,43 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 /**
- * <p>This is where you put your description about what this class does. You
- * don't have to write an essay but you should describe exactly what it does.
- * Describing it will help you to understand the programming problem better.</p>
+ * <p>This program will read maximum 50 numbers from the user and compute
+ * the mean and standard deviation.</p>
  *
- * @author Your Name goes here
+ * @author Sunguk (Edmund) Ham, A00979841
  * @version 1.0
  */
 public class Statistics {
     
     /**
-     * <p></p>
+     * <p>Scanner object.</p>
      */
-    static Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
     
     /**
-     * <p></p>
+     * <p>The maximum number of input.</p>
      */
-    private final static int MAXINPUT = 50;
+    private static final int MAXINPUT = 50;
     
     /**
-     * <p></p>
+     * <p>The sum of inputs.</p>
      */
     private static double sumInput;
     
     /**
-     * <p></p>
+     * <p>The mean of inputs.</p>
      */
     private static double average;
     
     /**
-     * <p></p>
-     */
-    private static double standDevNumerator;
-    
-    /**
-     * <p></p>
+     * <p>The standard deviation of inputs.</p>
      */
     private static double standDeviation;
     
     /**
      * <p>This is the main method (entry point) that gets called by the JVM.</p>
      *
-     * @param args command line arguments.
+     * @param args unused.
      */
     public static void main(String[] args) {
         
@@ -57,14 +51,30 @@ public class Statistics {
                 + "standard deviation into two decimal places.");
         System.out.println("Enter the numbers you want to compute"
                 + " with spaces between:");
+        //Reading numbers from user
         String numString = scan.nextLine();
         
-        String[] arrayString = numString.split(" ");
-        int[] input = new int[arrayString.length];
+        //Setting the maximum number of inputs
+        String[] arrayString;
         
-        //Reading numbers from user
+        arrayString = numString.split(" ");
+        int[] input = new int[MAXINPUT];
+
+        //Make a int array using String array.
         for (int i = 0; i < arrayString.length; i++) {
-            input[i] = Integer.parseInt(arrayString[i]);
+            if (arrayString.length <= MAXINPUT) {
+                if (arrayString[i].equals("")) {
+                    break;
+                } else {
+                    input[i] = Integer.parseInt(arrayString[i]);
+                }                
+            } else {
+                if (i < MAXINPUT) {
+                    input[i] = Integer.parseInt(arrayString[i]);
+                } else {
+                    break;
+                }
+            }
         }
         
         //calculating mean
@@ -75,9 +85,9 @@ public class Statistics {
         
         //calculating standard deviation
         for (int i = 0; i < input.length; i++) {
-            standDevNumerator += Math.pow(input[i] - average, 2);
+            standDeviation += Math.pow(input[i] - average, 2);
         }
-        standDeviation = Math.sqrt(standDevNumerator 
+        standDeviation = Math.sqrt(standDeviation
                 / (double) (input.length - 1));
         
         System.out.println("This is the mean: " + fmt.format(average));

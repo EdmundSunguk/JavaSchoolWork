@@ -3,7 +3,7 @@ package q2;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -11,45 +11,62 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * <p></p>
+ * <p>This program will draw a rectangle, and its size is determined by
+ * a mouse drag.</p>
  * 
- * @author Your Name goes here
+ * @author Sunguk (Edmund) Ham, A00979841
  * @version 1.0
  */
 public class DrawRectangle extends JFrame {
-
+    
     /**
-     *
+     * <p>Constant is used for setting frame width and height.</p>
+     */
+    private static final int FRAME = 400;
+    
+    /**
+     * <p>The constructor that makes JFrame.</p>
      */
     public DrawRectangle() {
         super("Sunguk Ham");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(new DrawRectanglePanel());
-        setSize(400, 400);
+        setSize(FRAME, FRAME);
         setVisible(true);
     }
 
     /**
-     *
+     * <p>JPanel contains drawing panel and implements two listener 
+     * related to the mouse and mouse motion.</p>
      */
     private class DrawRectanglePanel extends JPanel implements MouseListener,
             MouseMotionListener {
         
-        private Point point1 = null;
-        
-        private Point point2 = null;
+        /**
+         * <p>Point object that is used to the pivot.</p>
+         */
+        private Point point1;
         
         /**
+         * <p>Point object that is used to the point following 
+         * the mouse motion.</p>
          */
-        public DrawRectanglePanel() {
+        private Point point2;
+        
+        /**
+         * <p>The constructor adds two interface and sets 
+         * background color.</p>
+         */
+        DrawRectanglePanel() {
             addMouseListener(this);
             addMouseMotionListener(this);
-            
             setBackground(Color.black);
         }
 
         /**
-         *
+         * <p>Paint methods using two point objects.</p>
+         * 
+         * @param g is a paint component
          */
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
@@ -75,26 +92,83 @@ public class DrawRectangle extends JFrame {
             }
         }
 
+        /**
+         * <p>The method used for set pivot point of the rectangle.</p>
+         * 
+         * @param e is used for setting point object point1
+         */
         public void mousePressed(MouseEvent e) {
             point1 = e.getPoint();
         }
 
-
+        /**
+         * <p>The method used for setting the point that 
+         * follows mouse motion, and repainting whenever mouse change
+         * its location.</p>
+         * 
+         * @param e is used for setting point object point2
+         */
         public void mouseDragged(MouseEvent e) {
             point2 = e.getPoint();
             repaint();
         }
-
-        public void mouseReleased(MouseEvent e) {}
-        public void mouseEntered(MouseEvent e) {}
-        public void mouseExited(MouseEvent e) {}
-        public void mouseClicked(MouseEvent e) {}
-        public void mouseMoved(MouseEvent e) {}
+        
+        /**
+         * <p>Method is in the interface, but the program do not need
+         * this method.</p>
+         * 
+         * @param e unused
+         */
+        public void mouseReleased(MouseEvent e) {
+            
+        }
+        
+        /**
+         * <p>Method is in the interface, but the program do not need
+         * this method.</p>
+         * 
+         * @param e unused
+         */
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+        
+        /**
+         * <p>Method is in the interface, but the program do not need
+         * this method.</p>
+         * 
+         * @param e unused
+         */
+        public void mouseExited(MouseEvent e) {
+            
+        }
+        
+        /**
+         * <p>Method is in the interface, but the program do not need
+         * this method.</p>
+         * 
+         * @param e unused
+         */
+        public void mouseClicked(MouseEvent e) {
+            
+        }
+        
+        /**
+         * <p>Method is in the interface, but the program do not need
+         * this method.</p>
+         * 
+         * @param e unused
+         */
+        public void mouseMoved(MouseEvent e) {
+            
+        }
 
     }
 
     /**
+     * <p>This is the main method (entry point) that gets called by the JVM.</p>
      *
+     * @param args unused.
      */
     public static void main(String[] args) {
         new DrawRectangle();

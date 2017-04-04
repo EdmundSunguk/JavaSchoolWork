@@ -14,6 +14,10 @@ import java.util.Scanner;
  */
 public class PalindromeTester {
     
+    private static boolean isAlpha(char ch) {
+        return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z'); 
+    }
+    
     /**
      * <p>According to the ASCII table, upper case character
      * starts at 65.</p>
@@ -79,11 +83,7 @@ public class PalindromeTester {
              */
             for (int i = 0; i < str.length(); i++) {
                 char charCode = str.charAt(i);
-                int charCodeInt = (int) charCode;
-                    if (!((MINUPPERCHAR <= charCodeInt 
-                            && charCodeInt <= MAXUPPERCHAR) 
-                            || (MINLOWERCHAR <= charCodeInt 
-                            && charCodeInt <= MAXLOWERCHAR))) {
+                    if (!isAlpha(charCode)) {
                         str = str.replace(charCode, '.');
                         str = str.replace(".", "");
                         System.out.println();

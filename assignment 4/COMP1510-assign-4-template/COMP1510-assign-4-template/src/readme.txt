@@ -1,22 +1,19 @@
-[Student Name], [Student ID], [Set], [Date]
+[Sunguk (Edmund) Ham], [A00979841], [E], [April 12th]
 
-This assignment is [enter percent]% complete.
+This assignment is [100]% complete.
 
 
 ------------------------
 Question one (Statistics) status:
 
-[complete or not complete]
-[explanation if not complete, what is working/not working]
+[complete]
 
 ------------------------
 Question two (DrawRectangle) status:
 
-[complete or not complete]
-[explanation if not complete, what is working/not working]
+[complete]
 
 ------------------------
 Question three (StopWatch) status:
 
-[complete or not complete]
-[explanation if not complete, what is working/not working]
+[complete]
