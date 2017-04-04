@@ -1,22 +1,28 @@
 package q3;
 
+import javax.swing.JFrame;
+
 /**
- * <p>This is where you put your description about what this class does. You
- * don't have to write an essay but you should describe exactly what it does.
- * Describing it will help you to understand the programming problem better.</p>
+ * <p></p>
  *
- * @author Your Name goes here
+ * @author Sunguk (Edmund) Ham, A00979841
  * @version 1.0
  */
 public class StopWatch {
     /**
-     * <p>This is the main method (entry point) that gets called by the JVM.</p>
+     * <p>This is the main method (entry point) 
+     * that gets called by the JVM.</p>
      *
-     * @param args command line arguments.
+     * @param args unused.
      */
     public static void main(String[] args) {
-        // your code will go here!!!
-        System.out.println("Question three was called and ran sucessfully.");
+        JFrame frame = new JFrame("Sunguk Ham");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        frame.getContentPane().add(new StopWatchPanel());
+        
+        frame.pack();
+        frame.setVisible(true);
     }
 
 };
