@@ -55,9 +55,23 @@ public class DrawRectangle extends JFrame {
             super.paintComponent(g);
             
             g.setColor(Color.cyan);
-            if (point1 != null && point2 != null) {
-                g.drawRect(point1.x, point1.y, 
-                        point2.x - point1.x, point2.y - point1.y);
+            if (point1 != null || point2 != null) {
+                if (point1.x < point2.x && point1.y < point2.y) {
+                    g.fillRect(point1.x, point1.y, 
+                            point2.x - point1.x, point2.y - point1.y);
+                }
+                if (point2.x < point1.x && point2.y < point1.y) {
+                    g.fillRect(point2.x, point2.y, point1.x - point2.x,
+                            point1.y - point2.y);
+                }
+                if (point1.x < point2.x && point2.y < point1.y) {
+                    g.fillRect(point1.x, point2.y, 
+                            point2.x - point1.x, point1.y - point2.y);
+                }
+                if (point2.x < point1.x && point1.y < point2.y) {
+                    g.fillRect(point2.x, point1.y, 
+                            point1.x - point2.x, point2.y - point1.y);
+                }
             }
         }
 
@@ -65,26 +79,17 @@ public class DrawRectangle extends JFrame {
             point1 = e.getPoint();
         }
 
-        public void mouseReleased(MouseEvent e) {
-            
-        }
 
         public void mouseDragged(MouseEvent e) {
             point2 = e.getPoint();
             repaint();
         }
 
-        public void mouseEntered(MouseEvent e) {
-        }
-
-        public void mouseExited(MouseEvent e) {
-        }
-
-        public void mouseClicked(MouseEvent e) {
-        }
-
-        public void mouseMoved(MouseEvent e) {
-        }
+        public void mouseReleased(MouseEvent e) {}
+        public void mouseEntered(MouseEvent e) {}
+        public void mouseExited(MouseEvent e) {}
+        public void mouseClicked(MouseEvent e) {}
+        public void mouseMoved(MouseEvent e) {}
 
     }
 
