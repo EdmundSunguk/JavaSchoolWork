@@ -2,6 +2,7 @@ package q2;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
+ * <p></p>
  * 
  * @author Your Name goes here
  * @version 1.0
@@ -20,10 +22,10 @@ public class DrawRectangle extends JFrame {
      *
      */
     public DrawRectangle() {
-        super("INSERT YOUR NAME HERE");
+        super("Sunguk Ham");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(new DrawRectanglePanel());
-        setSize(400, 400); // you can change this size but don't make it HUGE!
+        setSize(400, 400);
         setVisible(true);
     }
 
@@ -32,12 +34,18 @@ public class DrawRectangle extends JFrame {
      */
     private class DrawRectanglePanel extends JPanel implements MouseListener,
             MouseMotionListener {
-
+        
+        private Point point1 = null;
+        
+        private Point point2 = null;
+        
         /**
          */
         public DrawRectanglePanel() {
             addMouseListener(this);
             addMouseMotionListener(this);
+            
+            setBackground(Color.black);
         }
 
         /**
@@ -45,20 +53,25 @@ public class DrawRectangle extends JFrame {
          */
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-            // DRAWING CODE HERE
-            System.out.println("Paint called");
+            
+            g.setColor(Color.cyan);
+            if (point1 != null && point2 != null) {
+                g.drawRect(point1.x, point1.y, 
+                        point2.x - point1.x, point2.y - point1.y);
+            }
         }
 
         public void mousePressed(MouseEvent e) {
-            System.out.println("Mouse pressed called");
+            point1 = e.getPoint();
         }
 
         public void mouseReleased(MouseEvent e) {
-            System.out.println("Mouse released called");
+            
         }
 
         public void mouseDragged(MouseEvent e) {
-            System.out.println("Mouse dragged called");
+            point2 = e.getPoint();
+            repaint();
         }
 
         public void mouseEntered(MouseEvent e) {
