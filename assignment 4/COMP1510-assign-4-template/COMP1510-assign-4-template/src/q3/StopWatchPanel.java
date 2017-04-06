@@ -18,6 +18,7 @@ public class StopWatchPanel extends JPanel{
     DecimalFormat fmt = new DecimalFormat("00");
     private int second;
     private int minute;
+    private int tenthsSecond;
 //    private final int pivotX = 200;
 //    private final int pivotY = 200;
 //    private int moveX = 200;
@@ -26,9 +27,10 @@ public class StopWatchPanel extends JPanel{
     private JButton start = new JButton("Start");
     private JButton reset = new JButton("Reset");
     private JButton stop = new JButton("Stop");
-    private JLabel time = new JLabel(fmt.format(minute)+ " : " + fmt.format(second));
+    private JLabel time = new JLabel(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
     private Timer minuteTimer = new Timer(60000, new MinuteStopWatchListener());
     private Timer secondTimer = new Timer(1000, new SecondStopWatchListener());
+    private Timer tenthsSecondTimer = new Timer(100, new TenthsSecondStopWatchListener());
 
     public StopWatchPanel() {
         setBackground(Color.white);
@@ -63,14 +65,24 @@ public class StopWatchPanel extends JPanel{
     private class SecondStopWatchListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             second++;
-            time.setText(fmt.format(minute)+ " : " + fmt.format(second));
+            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
         }
     }
     
     private class MinuteStopWatchListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             minute++;
-            time.setText(fmt.format(minute)+ " : " + fmt.format(second));
+            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
+        }
+    }
+    
+    private class TenthsSecondStopWatchListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            tenthsSecond++;
+            if (tenthsSecond > 9) {
+                tenthsSecond = 0;
+            }
+            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
         }
     }
     
@@ -80,17 +92,21 @@ public class StopWatchPanel extends JPanel{
             if (event.getSource() == start) {
                 minuteTimer.start();
                 secondTimer.start();
+                tenthsSecondTimer.start();
             }
             if (event.getSource() == reset) {
                 minuteTimer.stop();
                 secondTimer.stop();
+                tenthsSecondTimer.stop();
                 minute = 0;
                 second = 0;
-                time.setText(fmt.format(minute)+ " : " + fmt.format(second));
+                tenthsSecond = 0;
+                time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
             }
             if (event.getSource() == stop) {
                 minuteTimer.stop();
                 secondTimer.stop();
+                tenthsSecondTimer.stop();
             }
             
         }

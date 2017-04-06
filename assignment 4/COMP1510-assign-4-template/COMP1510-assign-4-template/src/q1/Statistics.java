@@ -78,10 +78,10 @@ public class Statistics {
         }
         
         //calculating mean
-        for (int i = 0; i < input.length; i++) {
+        for (int i = 0; i < arrayString.length; i++) {
             sumInput += input[i];
         }
-        average = sumInput / input.length;
+        average = sumInput / arrayString.length;
         
         //calculating standard deviation
         for (int i = 0; i < input.length; i++) {
