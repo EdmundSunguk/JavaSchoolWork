@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Parameters {
 
     public static void main(String[] args) {
+        
         double mean1, mean2;
         int count = 0;
         

@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Square {
 
     int[][] square;
+    private int rowSum;
+    private int colSum;
+    private int mainSum;
+    private int otherSum;
     
     public Square(int size) {
         square = new int[size][size];
@@ -12,50 +16,44 @@ public class Square {
     
     public int sumRow(int row) {
         int[] rowNum = square[row];
-        int sum = 0;
         for (int i = 0; i < rowNum.length; i++) {
-            sum += rowNum[i];
+            rowSum += rowNum[i];
         }
-        return sum;
+        return rowSum;
     }
     
     public int sumCol(int col) {
         int[] colNum = new int[square.length];
-        int sum = 0;
         for (int i = 0; i < square.length; i++) {
             colNum[i] = square[i][col];
-            sum += colNum[i];
+            colSum  += colNum[i];
         }
-        return sum;
+        return colSum;
     }
     
     public int sumMainDiag() {
-        int sum = 0;
         for (int i = 0; i < square.length; i++) {
-            sum += square[i][i];
+            mainSum += square[i][i];
         }
-        return sum;
+        return mainSum;
     }
     
     public int sumOtherDiag() {
-        int sum = 0;
         for (int i = 0; i < square.length; i++) {
-            sum += square[i][square.length-i];
+            otherSum += square[i][square.length-(i+1)];
         }
-        return sum;
+        return otherSum;
     }
     
     public boolean magic() {
-        for (int i = 0; i < square.length; i++) {
-            if (square[i][i] == square[i][square.length-i]
-                    && square[square.length-i][i]==square[i][square.length-i]
-                    && square[i][i] == square[square.length-i][i]) {
+//        System.out.println(rowSum + " " + colSum + " " 
+//                + mainSum + " " + otherSum);
+            if (rowSum == colSum
+                    && colSum == mainSum
+                    && mainSum == otherSum) {
                 return true;
-            } else {
-                return false;
             }
-        }
-        return false;
+            return false;
     }
     
     public void readSquare(Scanner scan) {
@@ -69,8 +67,9 @@ public class Square {
     public void printSquare() {
         for (int[] num : square) {
             for (int numnum : num) {
-            System.out.println(numnum);
+            System.out.print(numnum + " ");
             }
+            System.out.println();
         }
     }
     

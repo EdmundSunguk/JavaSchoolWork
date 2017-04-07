@@ -10,39 +10,41 @@ import javax.swing.JLabel;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.Timer;
-import java.text.DecimalFormat;
 import javax.swing.JPanel;
+import java.text.DecimalFormat;
 
+/**
+ * <p>This program has</p>
+ * 
+ * @author Sunguk (Edmund) Ham, A00979841
+ * @version 1.0
+ * 
+ */
 public class StopWatchPanel extends JPanel{
     
     DecimalFormat fmt = new DecimalFormat("00");
     private int second;
-    private int minute;
-    private int tenthsSecond;
-//    private final int pivotX = 200;
-//    private final int pivotY = 200;
-//    private int moveX = 200;
-//    private int moveY = 0;
-//    private final int maxDistanceSquare = 40000;
+    private int tenths;
+    private int moveW;
+    private int pivotH = 100;
     private JButton start = new JButton("Start");
     private JButton reset = new JButton("Reset");
     private JButton stop = new JButton("Stop");
-    private JLabel time = new JLabel(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
-    private Timer minuteTimer = new Timer(60000, new MinuteStopWatchListener());
-    private Timer secondTimer = new Timer(1000, new SecondStopWatchListener());
-    private Timer tenthsSecondTimer = new Timer(100, new TenthsSecondStopWatchListener());
+    private JLabel time = new JLabel(fmt.format(second) + ":" + fmt.format(tenths));
+    private Timer secondTimer = new Timer(10, new SecondStopWatchListener());
 
     public StopWatchPanel() {
-        setBackground(Color.white);
-        setPreferredSize(new Dimension(400, 500));
+        setBackground(Color.black);
+        setPreferredSize(new Dimension(400, 300));
         
         time.setFont(new Font("Helveltica", Font.PLAIN, 36));
+        time.setForeground (Color.white);
         start.addActionListener(new ButtonListener());
         stop.addActionListener(new ButtonListener());
         reset.addActionListener(new ButtonListener());
 
         
-        add(Box.createRigidArea(new Dimension(400, 390)));
+        add(Box.createRigidArea(new Dimension(400, 190)));
         add(time);
         add(Box.createRigidArea(new Dimension(400, 5)));
         add(start);
@@ -53,36 +55,25 @@ public class StopWatchPanel extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        g.setColor(Color.black);
-        g.fillOval(0, 0, 400, 400);
-        
         g.setColor(Color.white);
-        g.fillOval(195, 195, 10, 10);
+        g.fillRect(50, 50, 300, 100);
         
-//        g.drawLine(pivotY, pivotY, moveX, moveY);
+        g.setColor(Color.green);
+        g.fillRect(50, 50, moveW, pivotH);
     }
     
     private class SecondStopWatchListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            second++;
-            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
-        }
-    }
-    
-    private class MinuteStopWatchListener implements ActionListener {
-        public void actionPerformed(ActionEvent event) {
-            minute++;
-            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
-        }
-    }
-    
-    private class TenthsSecondStopWatchListener implements ActionListener {
-        public void actionPerformed(ActionEvent event) {
-            tenthsSecond++;
-            if (tenthsSecond > 9) {
-                tenthsSecond = 0;
+            tenths++;
+            moveW += 3;
+            
+            if (tenths > 99 && moveW > 300) {
+                tenths = 0;
+                second++;
+                moveW = 0;
             }
-            time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
+            time.setText(fmt.format(second) + ":" + fmt.format(tenths));
+            repaint();
         }
     }
     
@@ -90,23 +81,18 @@ public class StopWatchPanel extends JPanel{
         public void actionPerformed(ActionEvent event) {
 
             if (event.getSource() == start) {
-                minuteTimer.start();
                 secondTimer.start();
-                tenthsSecondTimer.start();
             }
             if (event.getSource() == reset) {
-                minuteTimer.stop();
                 secondTimer.stop();
-                tenthsSecondTimer.stop();
-                minute = 0;
                 second = 0;
-                tenthsSecond = 0;
-                time.setText(fmt.format(minute)+ " : " + fmt.format(second) + " : " + tenthsSecond);
+                tenths = 0;
+                moveW = 0;
+                time.setText(fmt.format(second) + ":" + fmt.format(tenths));
+                repaint();
             }
             if (event.getSource() == stop) {
-                minuteTimer.stop();
                 secondTimer.stop();
-                tenthsSecondTimer.stop();
             }
             
         }

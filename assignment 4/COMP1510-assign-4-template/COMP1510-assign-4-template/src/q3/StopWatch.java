@@ -3,7 +3,8 @@ package q3;
 import javax.swing.JFrame;
 
 /**
- * <p></p>
+ * <p>This program has simple main method which contains
+ * JFrame object and call StopWatchPanel.</p>
  *
  * @author Sunguk (Edmund) Ham, A00979841
  * @version 1.0
