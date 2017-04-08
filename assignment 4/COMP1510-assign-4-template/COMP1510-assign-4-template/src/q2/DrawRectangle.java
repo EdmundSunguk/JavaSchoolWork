@@ -71,7 +71,7 @@ public class DrawRectangle extends JFrame {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             
-            g.setColor(Color.cyan);
+            g.setColor(Color.pink);
             if (point1 != null || point2 != null) {
                 if (point1.x < point2.x && point1.y < point2.y) {
                     g.fillRect(point1.x, point1.y, 

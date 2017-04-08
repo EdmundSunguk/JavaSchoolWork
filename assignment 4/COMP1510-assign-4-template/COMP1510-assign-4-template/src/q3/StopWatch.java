@@ -20,6 +20,7 @@ public class StopWatch {
         JFrame frame = new JFrame("Sunguk Ham");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        //Adding StopWatchPanel
         frame.getContentPane().add(new StopWatchPanel());
         
         frame.pack();
