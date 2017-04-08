@@ -33,7 +33,8 @@ public class CirclePanel extends JPanel {
     //******************************************************************
     // Represents the listener for mouse events.
     //******************************************************************
-    private class CirclesListener implements MouseListener {
+    private class CirclesListener implements MouseListener,
+            MouseMotionListener {
         //---------------------------------------------------------------
         // Creates a new circle at the current location whenever the
         // mouse button is pressed and repaints.
@@ -45,9 +46,9 @@ public class CirclePanel extends JPanel {
             else if (circle.isInside(event.getPoint())) {
                 circle = null;
             }
-            else 
+            else {
                 circle.move(event.getPoint());
-            
+            }
             repaint();
         }
 
@@ -61,6 +62,18 @@ public class CirclePanel extends JPanel {
         }
         public void mouseExited (MouseEvent event) {
             setBackground(Color.blue);
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
         }
     }
 }
