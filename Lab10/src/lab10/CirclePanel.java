@@ -16,9 +16,10 @@ public class CirclePanel extends JPanel {
     //-------------------------------------------------------------------
     public CirclePanel() {
 
-        addMouseListener (new CirclesListener());
-
-        setPreferredSize (new Dimension(WIDTH, HEIGHT));
+        addMouseListener(new CirclesListener());
+        addMouseMotionListener(new CirclesListener());
+        
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
     
     //-------------------------------------------------------------------
@@ -26,8 +27,9 @@ public class CirclePanel extends JPanel {
     //-------------------------------------------------------------------
     public void paintComponent (Graphics page) {
         super.paintComponent(page);
-        if (circle != null)
+        if (circle != null) {
             circle.draw(page);
+        }
     }
 
     //******************************************************************
@@ -43,12 +45,7 @@ public class CirclePanel extends JPanel {
             if (circle == null) {
                 circle = new Circle(event.getPoint());
             }
-            else if (circle.isInside(event.getPoint())) {
-                circle = null;
-            }
-            else {
-                circle.move(event.getPoint());
-            }
+
             repaint();
         }
 
@@ -56,7 +53,10 @@ public class CirclePanel extends JPanel {
         // Provide empty definitions for unused event methods.
         //-----------------------------------------------------------------
         public void mouseClicked (MouseEvent event) {}
-        public void mouseReleased (MouseEvent event) {}
+        public void mouseReleased (MouseEvent event) {
+            circle = null;
+            repaint();
+        }
         public void mouseEntered (MouseEvent event) {
             setBackground(Color.white);
         }
@@ -65,9 +65,12 @@ public class CirclePanel extends JPanel {
         }
 
         @Override
-        public void mouseDragged(MouseEvent e) {
+        public void mouseDragged(MouseEvent event) {
             // TODO Auto-generated method stub
-            
+            if (circle.isInside(event.getPoint())) {
+                circle.move(event.getPoint());
+            }
+            repaint();
         }
 
         @Override

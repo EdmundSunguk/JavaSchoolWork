@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/Ham,Sunguk-assign-2"/>
+	<classpathentry kind="src" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/src"/>
+	<classpathentry kind="src" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/Ham,Sunguk-assign-3"/>
+	<classpathentry kind="src" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/src"/>
+	<classpathentry kind="src" path="assignment 4/COMP1510-assign-4-template/COMP1510-assign-4-template/src"/>
+	<classpathentry kind="src" path="chapter4/src"/>
+	<classpathentry kind="src" path="DebuggerTutorial/src"/>
+	<classpathentry kind="src" path="Lab1/src"/>
+	<classpathentry kind="src" path="Lab10/src"/>
+	<classpathentry kind="src" path="Lab3/src"/>
+	<classpathentry kind="src" path="Lab4/src"/>
+	<classpathentry kind="src" path="Lab5/src"/>
+	<classpathentry kind="src" path="Lab6/src"/>
+	<classpathentry kind="src" path="Lab7/src"/>
+	<classpathentry kind="src" path="Lab8/src"/>
+	<classpathentry kind="src" path="Lab9/src"/>
+	<classpathentry kind="src" path="Practice/src"/>
+	<classpathentry kind="lib" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/dist/q1.jar"/>
+	<classpathentry kind="lib" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/dist/q2.jar"/>
+	<classpathentry kind="lib" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/dist/q3.jar"/>
+	<classpathentry kind="lib" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/dist/q4.jar"/>
+	<classpathentry kind="lib" path="assignment 2/COMP1510-assign-2-template/COMP1510-assign-2-template/lib/checkstyle-6.10-all.jar"/>
+	<classpathentry kind="lib" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/dist/q1.jar"/>
+	<classpathentry kind="lib" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/dist/q2.jar"/>
+	<classpathentry kind="lib" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/dist/q3.jar"/>
+	<classpathentry kind="lib" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/dist/q4.jar"/>
+	<classpathentry kind="lib" path="assignment 3/COMP1510-assign-3-template/COMP1510-assign-3-template/lib/checkstyle-6.10-all.jar"/>
+	<classpathentry kind="lib" path="assignment 4/COMP1510-assign-4-template/COMP1510-assign-4-template/dist/q1.jar"/>
+	<classpathentry kind="lib" path="assignment 4/COMP1510-assign-4-template/COMP1510-assign-4-template/dist/q2.jar"/>
+	<classpathentry kind="lib" path="assignment 4/COMP1510-assign-4-template/COMP1510-assign-4-template/dist/q3.jar"/>
+	<classpathentry kind="lib" path="assignment 4/COMP1510-assign-4-template/COMP1510-assign-4-template/lib/checkstyle-6.10-all.jar"/>
+	<classpathentry kind="lib" path="Lab10/bin/lab10/Foo.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="DebuggerTutorial/bin"/>
+</classpath>
