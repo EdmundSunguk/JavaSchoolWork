@@ -3,7 +3,6 @@ package q2;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-//import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -71,7 +70,7 @@ public class DrawRectangle extends JFrame {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             
-            g.setColor(Color.pink);
+            g.setColor(Color.cyan);
             if (point1 != null || point2 != null) {
                 if (point1.x < point2.x && point1.y < point2.y) {
                     g.fillRect(point1.x, point1.y, 

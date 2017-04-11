@@ -14,11 +14,10 @@ public class Labrador extends Dog {
         return "WOOF";
     }
     
-    public static int avgBreedWeight() {
-        return breedWeight;
+    public int avgBreedWeight() {
+        return 0;
+        
     }
-    
-    
     
     
     

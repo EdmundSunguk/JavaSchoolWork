@@ -10,4 +10,8 @@ public class Yorkshire extends Dog {
         return "woof";
     }
     
+    public int avgBreedWeight() {
+        return 0;
+    }
+    
 }

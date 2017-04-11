@@ -1,6 +1,6 @@
 package lab11;
 
-public class Dog {
+public abstract class Dog {
 
     protected String name;
     
@@ -16,6 +16,6 @@ public class Dog {
         return "Woof";
     }
     
-    abstract int avgBreedWeight();
+    public abstract int avgBreedWeight();
     
 }
