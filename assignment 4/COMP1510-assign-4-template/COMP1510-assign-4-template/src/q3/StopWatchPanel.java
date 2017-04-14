@@ -147,6 +147,14 @@ public class StopWatchPanel extends JPanel {
         start.addActionListener(new ButtonListener());
         stop.addActionListener(new ButtonListener());
         reset.addActionListener(new ButtonListener());
+        
+        //Styling buttons
+        start.setBackground(Color.blue);
+        start.setForeground(Color.white);
+        stop.setBackground(Color.red);
+        stop.setForeground(Color.white);
+        reset.setBackground(Color.gray);
+        reset.setForeground(Color.white);
 
         //Making the empty box, just for organizing
         //Dimension(400, 190)

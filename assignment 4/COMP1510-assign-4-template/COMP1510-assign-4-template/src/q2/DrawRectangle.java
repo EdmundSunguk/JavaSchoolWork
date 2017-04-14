@@ -71,19 +71,27 @@ public class DrawRectangle extends JFrame {
             super.paintComponent(g);
             
             g.setColor(Color.cyan);
+            //Logics
+            //4 different if statement if mouse cursor goes
+            //right-top, right-bottom, left-top, and left-bottom
+            //If square doesn't have width or height, it won't show up.
             if (point1 != null || point2 != null) {
+                //right-bottom
                 if (point1.x < point2.x && point1.y < point2.y) {
                     g.fillRect(point1.x, point1.y, 
                             point2.x - point1.x, point2.y - point1.y);
                 }
+                //left-top
                 if (point2.x < point1.x && point2.y < point1.y) {
                     g.fillRect(point2.x, point2.y, point1.x - point2.x,
                             point1.y - point2.y);
                 }
+                //right-top
                 if (point1.x < point2.x && point2.y < point1.y) {
                     g.fillRect(point1.x, point2.y, 
                             point2.x - point1.x, point1.y - point2.y);
                 }
+                //left-bottom
                 if (point2.x < point1.x && point1.y < point2.y) {
                     g.fillRect(point2.x, point1.y, 
                             point1.x - point2.x, point2.y - point1.y);
