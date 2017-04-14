@@ -77,8 +77,12 @@ public class PP1 {
         }
     }
     
+    /**
+     * <p>Count how many occurrences happen.</p>
+     */
     private void countOccurrence() {
         for (int i = 0; i < array.length; i++) {
+            occurrences = 0;
             for (int q = 0; q < array.length; q++) {
                 if (array[i] == array[q]) {
                     occurrences++;
@@ -89,6 +93,7 @@ public class PP1 {
                 }
             }
         }
+        
     }
     
     /**
